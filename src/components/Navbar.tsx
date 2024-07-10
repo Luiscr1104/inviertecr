@@ -26,7 +26,7 @@ export default function Navbar() {
           <div className="h-full flex items-center space-x-4">
             {links.map(link => (
               <Link
-              key={link.href}
+                key={link.href}
                 href={link.href}
                 className={buttonVariants({
                   size: "sm",
@@ -39,7 +39,7 @@ export default function Navbar() {
             }
 
             <Link
-              href="/configure/upload"
+              href="/"
               className={buttonVariants({
                 size: "sm",
                 className: "hidden sm:flex items-center gap-1",
