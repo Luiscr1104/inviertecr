@@ -1,6 +1,7 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { Check, Star } from "lucide-react";
 import Image from "next/image";
+import MainCarousel from '@/components/MainCarousel';
 
 export default function HomePage() {
   return (
@@ -107,15 +108,9 @@ export default function HomePage() {
             </div>
           </div>
           <div
-            className="hidden lg:flex col-span-1 w-full flex justify-center items-center lg:mx-0 lg:mt-40 h-fit"
+            className="hidden lg:flex col-span-1 w-full justify-center items-center lg:mx-0 lg:mt-40 h-fit"
           >
-            <Image
-              src="/property-image.jpg"
-              alt="Property Image"
-              width={600}
-              height={800}
-              className="object-cover rounded-2xl w-full h-full"
-            />
+            <MainCarousel />
           </div>
         </MaxWidthWrapper>
       </section>
@@ -125,7 +120,7 @@ export default function HomePage() {
         <MaxWidthWrapper className="flex flex-col items-center gap-16 sm:gap-32">
           <div className="flex flex-col lg:flex-row items-center gap-4 sm:gap-6">
             <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
-              What our custumers say
+              Qué dicen nuestros clientes?
             </h2>
           </div>
           <div className="mx-auto grid max-w-2xl grid-cols-1 px-4 lg:mx-0 lg:max-w-none lg:grid-cols-2 gap-y-16">
@@ -139,12 +134,9 @@ export default function HomePage() {
               </div>
               <div className="text-lg leading-8">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  <span className="p-0.5 bg-slate-800 text-white">Lorem ipsum dolor</span>
-                  sit amet consectetur adipisicing elit. Reprehenderit commodi
-                  consequatur nulla laudantium eius vero voluptatibus
-                  praesentium natus, porro earum cum minus perspiciatis tempore
-                  consequuntur molestiae sint. Laboriosam, sint expedita?
+                  Después de seis meses de haber adquirido un terreno en La Fortuna, estoy completamente satisfecho con mi inversión. A pesar de mis iniciales dudas,
+                  <span className="p-0.5 bg-slate-800 text-white"> el valor del terreno ha aumentado</span>
+                  y la zona promete un desarrollo emocionante. ¡Definitivamente fue una excelente decisión!
                 </p>
               </div>
               <div className='flex gap-4 mt-2'>
@@ -174,14 +166,8 @@ export default function HomePage() {
               </div>
               <div className='text-lg leading-8'>
                 <p>
-                  I usually keep my phone together with my keys in my pocket
-                  and that led to some pretty heavy scratchmarks on all of my
-                  last phone cases. This one, besides a barely noticeable
-                  scratch on the corner,{' '}
-                  <span className='p-0.5 bg-slate-800 text-white'>
-                    looks brand new after about half a year
-                  </span>
-                  . I dig it.
+                  La compra de mi lote ha sido una de las <span className='p-0.5 bg-slate-800 text-white'>
+                    mejores inversiones que he hecho.</span> En solo medio año, he visto cómo la zona ha comenzado a desarrollarse y el valor del terreno sigue subiendo. Estoy muy contento con la decisión y el potencial de crecimiento que ofrece esta hermosa región de Costa Rica.
                 </p>
               </div>
               <div className='flex gap-4 mt-2'>
