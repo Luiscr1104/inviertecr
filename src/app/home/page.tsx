@@ -8,27 +8,15 @@ export default function HomePage() {
       <section>
         <MaxWidthWrapper
           className="pb-24 pt-10 lg:grid 
-          lg:grid-cols-3 sm:pb-32 lg:gap-x-0 xl:gap-x-8 
-          lg:pt-24 xl:pt-32 lg:pb-52"
+          lg:grid-cols-2 sm:pb-28 lg:gap-x-8 
+          lg:pt-15 xl:pt-10 lg:pb-48"
         >
-          <div className="col-span-2 px-6 lg:px-0 lg:pt-4">
+          <div className="col-span-1 px-6 lg:px-0 lg:pt-4">
             <div
               className="relative mx-auto 
               text-center lg:text-left flex flex-col 
               items-center lg:items-start"
             >
-              <div
-                className="absolute w-28 left-0 -top-20 hidden
-                lg:block"
-              >
-                <Image
-                  src="/snake-1.png"
-                  alt="logo-cobra"
-                  width={100}
-                  height={100}
-                  className="w-full"
-                />
-              </div>
               <h1 className="relative w-fit tracking-tight text-balance mt-16 font-bold !leading-tight text-gray-900 text-5xl md:text-6xl lg:text-7xl">
                 Descubre tu Terreno Ideal en{" "}
                 <span className="bg-custom-violet px-2 text-white">
@@ -119,26 +107,15 @@ export default function HomePage() {
             </div>
           </div>
           <div
-            className="col-span-full lg:col-span-1 w-full flex justify-center px-8
-              sm:px-16 md:px-0 mt-32 lg:mx-0 lg:mt-20 h-fit"
+            className="hidden lg:flex col-span-1 w-full flex justify-center items-center lg:mx-0 lg:mt-40 h-fit"
           >
-            <div className="relative md:max-w-xl">
-              <Image
-                src={"/your-image.png"}
-                alt="your image"
-                width={250}
-                height={250}
-                className="absolute w-40 lg:w-52 left-56 -top-20 select-none hidden 
-                  sm:block lg:hidden xl:block"
-              />
-              <Image
-                src={"/line.png"}
-                alt=""
-                width={250}
-                height={250}
-                className="absolute w-20 -left-6 -bottom-6 select-none"
-              />
-            </div>
+            <Image
+              src="/property-image.jpg"
+              alt="Property Image"
+              width={600}
+              height={800}
+              className="object-cover rounded-2xl w-full h-full"
+            />
           </div>
         </MaxWidthWrapper>
       </section>
@@ -186,7 +163,7 @@ export default function HomePage() {
               </div>
             </div>
 
-                        {/* second user review */}
+            {/* second user review */}
             <div className='flex flex-auto flex-col gap-4 lg:pr-8 xl:pr-20'>
               <div className='flex gap-0.5 mb-2'>
                 <Star className='h-5 w-5 text-custom-violet fill-custom-violet' />
