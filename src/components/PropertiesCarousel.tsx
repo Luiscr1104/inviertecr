@@ -15,21 +15,21 @@ const proyectos = [
     titulo: "Condominios en PREVENTA",
     descripcion:
       "Preventa de condominios: asegura tu futuro hogar en una ubicación privilegiada con amenidades premium. Una inversión inteligente en confort y estilo de vida.",
-    src: "/property-image.jpg",
+    src: "/preventa.jpg",
   },
   {
     id: 2,
     titulo: "Disponibles en Condominio",
     descripcion:
       "Oportunidad en condominio: últimos lotes disponibles para crear tu espacio ideal en una comunidad segura y con todas las comodidades.",
-    src: "/property-image.jpg",
+    src: "/condominio.jpg",
   },
   {
     id: 3,
     titulo: "Disponibles en Residencial",
     descripcion:
       "Lotes residenciales exclusivos disponibles, ideales para construir tu hogar soñado en un entorno seguro y natural. Una oportunidad única para calidad de vida y privacidad.",
-    src: "/property-image.jpg",
+    src: "/residencial.jpg",
   },
 ];
 
@@ -48,8 +48,10 @@ export const PropertiesCarousel = () => {
                     height={800}
                     src={proyecto.src}
                   />
-                  <div className="absolute top-4 left-10 text-black text-lg font-bold">
-                    <h3 className="shadow-sm">{proyecto.titulo}</h3>
+                  <div className="absolute bottom-0 left-0 w-full p-4">
+                    <div className="bg-black/60 text-white text-center py-2">
+                      <h3 className="font-bold text-lg">{proyecto.titulo}</h3>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
