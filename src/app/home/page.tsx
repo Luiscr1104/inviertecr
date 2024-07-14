@@ -3,6 +3,7 @@ import { Check, Star } from "lucide-react";
 import Image from "next/image";
 import MainCarousel from "@/components/MainCarousel";
 import { PropertiesCarousel } from "@/components/PropertiesCarousel";
+import EcwidStore from "../store/EcwidStore";
 
 export default function HomePage() {
   return (
@@ -208,10 +209,8 @@ export default function HomePage() {
         >
           <div className="flex flex-col items-center gap-4 sm:gap-6 my-10">
             <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
-              Propiedades{" "}
-              <span className="bg-custom-violet px-2 text-white">
-                Disponibles
-              </span>
+              Proyectos {" "}
+              <span className="bg-custom-violet px-2 text-white">Disponibles</span>
             </h2>
           </div>
           <div className="p-10">

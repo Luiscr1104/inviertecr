@@ -23,13 +23,13 @@ export default function Navbar() {
 
           <div className="h-full flex items-center space-x-4">
             <a
-              href="/properties"
+              href="/store"
               className={buttonVariants({
                 size: "sm",
                 variant: "ghost",
               })}
             >
-              Propiedades
+              Store
             </a>
             {links.map((link) => (
               <Link
@@ -54,7 +54,6 @@ export default function Navbar() {
               Contáctanos
               <ArrowRight className="ml-1.5 h-5 w-5" />
             </Link>
-
             <div className="h-8 w-px bg-zinc-200 hidden sm:block" />
           </div>
         </div>
