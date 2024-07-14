@@ -3,7 +3,6 @@ import { Check, Star } from "lucide-react";
 import Image from "next/image";
 import MainCarousel from "@/components/MainCarousel";
 import { PropertiesCarousel } from "@/components/PropertiesCarousel";
-import EcwidStore from "../store/EcwidStore";
 
 export default function HomePage() {
   return (

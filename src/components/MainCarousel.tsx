@@ -24,8 +24,8 @@ const images = [
   {
     src: "/property-image.jpg",
     alt: "Property Image",
-    width: 400,
-    height: 400,
+    width: 600,
+    height: 800,
   },
 ];
 
