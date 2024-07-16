@@ -3,6 +3,13 @@ import { Check, Star } from "lucide-react";
 import Image from "next/image";
 import MainCarousel from "@/components/MainCarousel";
 import { PropertiesCarousel } from "@/components/PropertiesCarousel";
+import type { Metadata } from 'next'
+import ContactForm from "@/components/ContactForm";
+
+export const metadata: Metadata = {
+  title: 'InvierteCR - Descubre tu Terreno Ideal en La Fortuna',
+  description: 'Explora oportunidades de inversión en terrenos y propiedades en La Fortuna. Con InvierteCR, invierte seguro en el mejor mercado inmobiliario.',
+};
 
 export default function HomePage() {
   return (
@@ -202,9 +209,9 @@ export default function HomePage() {
 
       <section>
         <MaxWidthWrapper
-          className="pb-24 pt-10 lg:grid 
-          lg:grid-cols-1 sm:pb-28 lg:gap-x-8 
-          lg:pt-15 xl:pt-10 lg:pb-48"
+          className=" pt-10 lg:grid 
+          lg:grid-cols-1 lg:gap-x-8 
+          lg:pt-15 xl:pt-10"
         >
           <div className="flex flex-col items-center gap-4 sm:gap-6 my-10">
             <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
@@ -215,6 +222,12 @@ export default function HomePage() {
           <div className="p-10">
             <PropertiesCarousel />
           </div>
+        </MaxWidthWrapper>
+      </section>
+      
+      <section>
+        <MaxWidthWrapper>
+            <ContactForm />
         </MaxWidthWrapper>
       </section>
     </div>
