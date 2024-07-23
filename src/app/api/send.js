@@ -4,10 +4,12 @@ import Cors from 'cors';
 
 // Inicializando el middleware de CORS
 const cors = Cors({
-    methods: ['POST'],
-    origin: '*', // Esto permite solicitudes de cualquier origen
+    methods: ['POST'], // Asegurando que sólo se permitan solicitudes POST
+    origin: true, // Puedes especificar dominios específicos o usar true para copiar el origen de la solicitud
+    credentials: true, // Si necesitas manejar cookies
+    optionsSuccessStatus: 200, // Algunos navegadores antiguos (IE11, varios SmartTVs) fallan con 204
   });
-  
+
 
 // Helper para inicializar CORS y manejar la respuesta de preflight (si es necesario)
 function runMiddleware(req, res, fn) {
