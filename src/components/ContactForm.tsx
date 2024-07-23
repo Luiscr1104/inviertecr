@@ -17,7 +17,7 @@ function ContactForm() {
     const handleSubmit = async (event: FormEvent) => {
         event.preventDefault();
         try {
-            const response = await fetch('/api/send', {
+            const response = await fetch('https://www.inviertecr.com/api/send', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
