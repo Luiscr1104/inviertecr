@@ -2,8 +2,11 @@
 import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
+  // Asegúrate de que sólo se aceptan solicitudes POST
   if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Método no permitido' });
+    // Método no permitido
+    res.setHeader('Allow', 'POST');
+    return res.status(405).json({ success: false, message: 'Método no permitido' });
   }
 
   const { name, email, message } = req.body;
@@ -14,7 +17,7 @@ export default async function handler(req, res) {
     secure: process.env.MAIL_SECURE === 'true',
     auth: {
       user: process.env.MAIL_USERNAME,
-      pass: process.env.MAIL_PASSWORD
+      pass: process.env.MAIL_PASSWORD,
     }
   });
 
@@ -28,10 +31,10 @@ export default async function handler(req, res) {
 
   try {
     const result = await transporter.sendMail(mailOptions);
-    console.log('Message Sent', result);
-    res.status(200).json({ success: true, message: 'Email enviado correctamente.' });
+    console.log('Correo enviado: ' + result);
+    res.status(200).json({ success: true, message: 'Email enviado correctamente' });
   } catch (error) {
     console.error('Error al enviar el email', error);
-    res.status(500).json({ success: false, message: 'Error al enviar el email.', error: error.message });
+    res.status(500).json({ success: false, message: 'Error al enviar el email', error: error.message });
   }
 }

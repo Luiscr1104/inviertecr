@@ -17,29 +17,29 @@ function ContactForm() {
     const handleSubmit = async (event: FormEvent) => {
         event.preventDefault();
         try {
-            const response = await fetch('api/send', {
+            const response = await fetch('/api/send', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(formData),
             });
-            if (response.ok) {
-                const data = await response.json();
-                setMessage(data.message);
+            const data = await response.json();
+            if (data.success) {
+                console.log('Mensaje enviado correctamente');
                 setFormData({
                     name: '',
                     email: '',
                     message: '',
                 });
             } else {
-                throw new Error('Something went wrong');
+                throw new Error(data.message);
             }
         } catch (error) {
-            console.error('Error sending form:', error);
-            setMessage('Failed to send message');
+            console.error('Error al enviar el formulario:', error);
         }
     };
+    
 
     return (
         <div className="flex items-center justify-center min-h-screen">
