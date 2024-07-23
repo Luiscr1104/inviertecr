@@ -1,7 +1,5 @@
 'use client'
-import Link from 'next/link';
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { buttonVariants } from './ui/button';
 
 function ContactForm() {
     const [formData, setFormData] = useState({
@@ -9,22 +7,38 @@ function ContactForm() {
         email: '',
         message: '',
     });
+    const [message, setMessage] = useState('');
 
-    // Manejo del cambio en los inputs
     const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
     };
 
-    // Manejo del envío del formulario
-    const handleSubmit = (event: FormEvent) => {
+    const handleSubmit = async (event: FormEvent) => {
         event.preventDefault();
-        console.log('Form Data:', formData);
-        setFormData({
-            name: '',
-            email: '',
-            message: '',
-        });
+        try {
+            const response = await fetch('https://inviertecr.com/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+            if (response.ok) {
+                const data = await response.json();
+                setMessage(data.message);
+                setFormData({
+                    name: '',
+                    email: '',
+                    message: '',
+                });
+            } else {
+                throw new Error('Something went wrong');
+            }
+        } catch (error) {
+            console.error('Error sending form:', error);
+            setMessage('Failed to send message');
+        }
     };
 
     return (
@@ -66,17 +80,10 @@ function ContactForm() {
                             className="py-3 px-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"
                             required
                         ></textarea>
-                        <div>
-                            <Link
-                                href="/"
-                                className={buttonVariants({
-                                    size: "lg",
-                                    className: "sm:flex items-center gap-1",
-                                })}
-                            >
-                                Enviar
-                            </Link>
-                        </div>
+                        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Enviar
+                        </button>
+                        {message && <p className="text-center">{message}</p>}
                     </form>
                 </div>
             </div>

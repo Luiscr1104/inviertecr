@@ -29,20 +29,8 @@ export default function Navbar() {
                 variant: "ghost",
               })}
             >
-              Store
+              Tienda
             </a>
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={buttonVariants({
-                  size: "sm",
-                  variant: "ghost",
-                })}
-              >
-                {link.name}
-              </Link>
-            ))}
 
             <Link
               href="/"
