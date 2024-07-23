@@ -1,14 +1,37 @@
 // src/app/api/send.js
 import nodemailer from 'nodemailer';
+import Cors from 'cors';
+
+// Inicializando el middleware de CORS
+const cors = Cors({
+  methods: ['POST'], // Asegurando que sólo se permitan solicitudes POST
+  origin: true, // Puedes especificar dominios específicos o usar true para copiar el origen de la solicitud
+  credentials: true, // Si necesitas manejar cookies
+  optionsSuccessStatus: 200, // Algunos navegadores antiguos (IE11, varios SmartTVs) fallan con 204
+});
+
+// Helper para inicializar CORS y manejar la respuesta de preflight (si es necesario)
+function runMiddleware(req, res, fn) {
+  return new Promise((resolve, reject) => {
+    fn(req, res, (result) => {
+      if (result instanceof Error) {
+        return reject(result);
+      }
+      return resolve(result);
+    });
+  });
+}
 
 export default async function handler(req, res) {
-  // Asegúrate de que sólo se aceptan solicitudes POST
+  // Ejecuta el middleware de CORS
+  await runMiddleware(req, res, cors);
+
   if (req.method !== 'POST') {
-    // Método no permitido
     res.setHeader('Allow', 'POST');
     return res.status(405).json({ success: false, message: 'Método no permitido' });
   }
 
+  // Continúa con la lógica del correo
   const { name, email, message } = req.body;
 
   const transporter = nodemailer.createTransport({
@@ -31,7 +54,6 @@ export default async function handler(req, res) {
 
   try {
     const result = await transporter.sendMail(mailOptions);
-    console.log('Correo enviado: ' + result);
     res.status(200).json({ success: true, message: 'Email enviado correctamente' });
   } catch (error) {
     console.error('Error al enviar el email', error);
